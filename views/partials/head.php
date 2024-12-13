@@ -9,7 +9,7 @@
 <body class=" bg-slate-700 text-stone-100">
     <nav class="w-full bg-green-500 py-5">
         <div class="max-w-[1200px] flex justify-between items-center px-10 mx-auto">
-            <span class="text-base font-semibold">Package manager</span>
+            <a href="/" class="text-base font-semibold">Package manager</a>
             <div>
             <?php
              echo !isset($_SESSION['username']) ? "<a href='/login' class='font-semibold ml-6 hover:text-purple-700 transition-colors'>Login</a>" : "<a href='/logout' class='font-semibold ml-6 hover:text-purple-700 transition-colors'>Logout</a>";

@@ -1,8 +1,9 @@
 <?php 
 session_start();
 
-require "db.php";
-$db = new Database($dsn);
+global $db;
+// require_once "db.php";
+// $db = new Database($dsn);
 
 // $query = '
 // SELECT 

@@ -4,9 +4,9 @@
 if(isset($_SESSION['user_id']))
 header('location : /dashboard');
 
-
-require "db.php";
-$db = new Database($dsn);
+global $db;
+// require_once "db.php";
+// $db = new Database($dsn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve username and password from form

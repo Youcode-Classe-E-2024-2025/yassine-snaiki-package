@@ -1,5 +1,7 @@
 <?php
-require "db.php";
+// require_once "db.php";
+
+global $db;
 
 session_start();
 // unset($_SESSION['user_id']);
@@ -9,7 +11,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
     header("Location: /login");
     exit();
 }
-$db = new Database($dsn);
+// $db = new Database($dsn);
 $packages = $db->query('select * from packages')->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

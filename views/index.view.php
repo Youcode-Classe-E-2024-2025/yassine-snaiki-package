@@ -2,7 +2,7 @@
     <div class="flex flex-col mx-auto my-10 w-fit items-center">
         <h2 class=" font-bold text-xl w-fit ">JS Packages</h2>
             <form class="">
-                <input  type="text" placeholder="search package" class=" w-64 px-5 py-2 outline-none rounded-md my-2 text-black search-package">
+                <input  type="text" placeholder="search package" class=" w-64 px-5 py-2 outline-none rounded-md my-2 bg-green-200 text-black search-package">
             </form>
     </div>
         <div class="searched-package max-w-[1200px] mx-auto flex flex-col gap-4 mb-10">
@@ -76,11 +76,13 @@
         }
         const filteredPackages = packages.filter(package=>package.name.toLowerCase().includes(value.toLowerCase()));
         let html=""
+        if(filteredPackages.length)
         filteredPackages.forEach(p=>{
             html+= `<div class="bg-green-500 rounded-md shadow-md  px-4 py-2 cursor-pointer hover:bg-green-300 transition-colors package-item" data-id="${p.id}">
                 <h2 class="text-center font-bold text-lg bg-green-600 rounded-md">${p.name}</h2>
                </div>`
-        })
+        }) 
+        else html= `<h2 class="text-lg w-fit mx-auto">No results found :(</h2>`;
         searchedPackage.innerHTML = html;
 
     })

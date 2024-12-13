@@ -10,6 +10,12 @@ $versionsQuery = 'select * from versions where package_id = ?';
 
 
 $package = $db->query($packageQuery, [$_GET['id']])->fetch();
+if(!$package) {
+    header('Location: /404');
+    exit();
+}
+
+
 $versions = $db->query($versionsQuery,[$_GET['id']])->fetchAll(PDO::FETCH_ASSOC);
 $authors = $db->query($authorsQuery,[$_GET['id']])->fetchAll(PDO::FETCH_ASSOC);
 $allAuthors = $db->query('SELECT * from authors')->fetchAll(PDO::FETCH_ASSOC);

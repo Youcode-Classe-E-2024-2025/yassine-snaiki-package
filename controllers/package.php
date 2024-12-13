@@ -23,6 +23,11 @@ $linkAuthQuery = 'INSERT INTO author_package(author_id,package_id) VALUES (?, ?)
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
+
+        header("Location: /login");
+        exit();
+    }
     if($_POST['hidden'] === 'version') {
         $version = $_POST['version'];
         $date = $_POST['date'];

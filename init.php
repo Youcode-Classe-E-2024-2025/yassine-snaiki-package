@@ -43,8 +43,8 @@ $queries = [
             id SERIAL PRIMARY KEY,
             author_id INT NOT NULL,
             package_id INT NOT NULL,
-            CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES authors,
-            CONSTRAINT fk_package FOREIGN KEY (package_id) REFERENCES packages
+            CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES authors ON DELETE CASCADE,
+            CONSTRAINT fk_package FOREIGN KEY (package_id) REFERENCES packages ON DELETE CASCADE
         );
     ",
     'versions' => "
@@ -53,7 +53,7 @@ $queries = [
             release_date DATE NOT NULL,
             name VARCHAR(255) NOT NULL,
             package_id INT NOT NULL,
-            CONSTRAINT fk_package FOREIGN KEY (package_id) REFERENCES packages
+            CONSTRAINT fk_package FOREIGN KEY (package_id) REFERENCES packages ON DELETE CASCADE
         );
     ",
     'admins' => "

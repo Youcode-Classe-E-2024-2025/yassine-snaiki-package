@@ -26,30 +26,33 @@ btnAddPackage?.addEventListener('click',e=>{
     formAdd.classList.remove('hidden');
 })
 btnAddAuthor?.addEventListener('click',e=>{
-
-    formAdd.classList.add('hidden');
+    closeAllForms();
     formAddAuthor.classList.remove('hidden');
 })
 
 btnAddVersion?.addEventListener('click',e=>{
-    formAddAuthor.classList.add('hidden')
+    closeAllForms();
     formAdd.classList.remove('hidden');
 })
 
 btnCloseAdd?.forEach(el=>el?.addEventListener('click',(e)=>{
     e.preventDefault();
-    console.log("rrr");
-    formAdd.classList.add('hidden');
-    formAddAuthor.classList.add('hidden');
-    formAddNewAuthor.classList.add('hidden');
-    formDeletePackage.classList.add('hidden');
+    closeAllForms();
 }))
 
 btnAddNewAuthor?.addEventListener('click',(e)=>{
     e.preventDefault();
-    formAddAuthor.classList.add('hidden');
+    closeAllForms();
     formAddNewAuthor.classList.remove('hidden');
 })
 btnDeletePackage?.addEventListener('click',e=>{
+    closeAllForms();
     formDeletePackage.classList.remove('hidden');
 })
+
+function closeAllForms(){
+    formAdd.classList.add('hidden');
+    formAddAuthor.classList.add('hidden');
+    formAddNewAuthor.classList.add('hidden');
+    formDeletePackage.classList.add('hidden');
+}

@@ -17,8 +17,8 @@ create table author_package (
     id serial primary key,
     author_id int not null,
     package_id int not null,
-    constraint fk_author foreign key (author_id) references authors,
-    constraint fk_package foreign key (package_id) references packages
+    constraint fk_author foreign key (author_id) references authors ON DELETE CASCADE,
+    constraint fk_package foreign key (package_id) references packages ON DELETE CASCADE
 );
 
 create table versions (
@@ -26,7 +26,7 @@ create table versions (
     release_date date not null,
     name varchar(255) not null,
     package_id int not null,
-    constraint fk_package foreign key (package_id) references packages
+    constraint fk_package foreign key (package_id) references packages ON DELETE CASCADE
 );
 
 INSERT INTO packages (name, description) VALUES

@@ -3,7 +3,10 @@
 <div class="max-w-[1200px] mx-auto mt-10 px-8">
 
 <div class="bg-green-500 rounded-md shadow-md px-4 py-2  transition-colors package relative">
-   <button class="btn_delete-package absolute top-0 right-5 text-lg font-bold hover:text-green-400 transition-colors">...</button>
+   <?=isset($_SESSION['user_id'])?
+   "<button class='btn_delete-package absolute top-0 right-5 text-lg font-bold hover:text-green-400 transition-colors'>...</button>"
+   :
+   ""?>
    <h2 class="text-center font-bold text-lg bg-green-600 rounded-md"><?=$package['name']?></h2>
    <div class=" px-10 mt-5">
       <p class="font-semibold text-xl"><?=$package['description']?></p>

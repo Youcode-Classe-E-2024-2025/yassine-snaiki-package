@@ -7,6 +7,8 @@ const btnAddNewAuthor = document.querySelector('.btn_add-new-author');
 const formAdd = document.querySelector('.form_add');
 const formAddAuthor = document.querySelector('.form_add-author');
 const formAddNewAuthor = document.querySelector('.form_add-new-author');
+const btnDeletePackage = document.querySelector('.btn_delete-package');
+const formDeletePackage = document.querySelector('.form_delete-package');
 const btnCloseAdd = document.querySelectorAll('.btn_close-add');
 
 
@@ -40,10 +42,14 @@ btnCloseAdd?.forEach(el=>el?.addEventListener('click',(e)=>{
     formAdd.classList.add('hidden');
     formAddAuthor.classList.add('hidden');
     formAddNewAuthor.classList.add('hidden');
+    formDeletePackage.classList.add('hidden');
 }))
 
 btnAddNewAuthor?.addEventListener('click',(e)=>{
     e.preventDefault();
     formAddAuthor.classList.add('hidden');
     formAddNewAuthor.classList.remove('hidden');
+})
+btnDeletePackage?.addEventListener('click',e=>{
+    formDeletePackage.classList.remove('hidden');
 })

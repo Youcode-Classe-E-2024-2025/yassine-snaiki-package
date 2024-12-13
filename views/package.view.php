@@ -1,7 +1,9 @@
 
 <?php require "views/partials/head.php" ?>
 <div class="max-w-[1200px] mx-auto mt-10 px-8">
-<div class="bg-green-500 rounded-md shadow-md px-4 py-2  transition-colors package">
+
+<div class="bg-green-500 rounded-md shadow-md px-4 py-2  transition-colors package relative">
+   <button class="btn_delete-package absolute top-0 right-5 text-lg font-bold hover:text-green-400 transition-colors">...</button>
    <h2 class="text-center font-bold text-lg bg-green-600 rounded-md"><?=$package['name']?></h2>
    <div class=" px-10 mt-5">
       <p class="font-semibold text-xl"><?=$package['description']?></p>
@@ -138,6 +140,18 @@
         type="submit" 
         class="w-full px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
         Add
+    </button>
+
+        <button  
+        class="btn_close-add w-full px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+        Cancel
+    </button>
+</form>
+<form action="" method="POST" class="form_delete-package space-y-4 bg-green-800 rounded-md p-5 hidden">
+    <input type="hidden" name="hidden" id="hidden" value="delete_package">
+<button type="submit" 
+        class="w-full px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+        Delete this package
     </button>
 
         <button  

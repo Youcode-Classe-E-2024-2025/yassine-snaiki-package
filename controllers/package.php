@@ -2,28 +2,7 @@
 session_start();
 
 global $db;
-// require_once "db.php";
-// $db = new Database($dsn);
 
-// $query = '
-// SELECT 
-//     p.name AS name, 
-//     p.description AS description, 
-//     COALESCE(STRING_AGG(DISTINCT v.name, \' , \' ORDER BY v.name), \'\') AS version, 
-//     COALESCE(STRING_AGG(DISTINCT a.name, \' , \' ORDER BY a.name), \'\') AS author
-// FROM 
-//     packages p
-// JOIN 
-//     versions v ON p.id = v.package_id
-// JOIN 
-//     author_package ap ON p.id = ap.package_id
-// JOIN 
-//     authors a ON ap.author_id = a.id
-// WHERE 
-//     p.id = ?
-// GROUP BY 
-//     p.id
-// ';
 
 $packageQuery = 'select * from packages where id = ?';
 $authorsQuery = 'select * from authors a join author_package ap on a.id = ap.author_id where ap.package_id = ?';
@@ -76,6 +55,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $id =$db->query($newAuthQuery,[$name,$email])->fetchColumn();
             $db->query($linkAuthQuery,[$id,$_GET['id']]);
         }
+    }
+    if($_POST['hidden'] === 'delete_package') {
+            $db->query('DELETE FROM packages where id = ?',[$_GET['id']]);
+            header("Location: /");
+            exit();
     }
     header("Location: /package?id={$_GET['id']}");
     exit();
